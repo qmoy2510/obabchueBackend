@@ -23,7 +23,7 @@ public class ApiController {
     @PostMapping("/api/recommend")
     public String recommend(RecommendForm recommendForm) {
         // The client gets the API key from the environment variable `GEMINI_API_KEY`.
-        Client client = Client.builder().apiKey("AIzaSyBEGAPCPn3VrQAd8G4TTcg7LEVyGqQAO_M").build();
+        Client client = Client.builder().apiKey("").build();
         String str =
                 "  {\n" +
                 "    \"place_id\": \"1842214188\",\n" +
@@ -1881,10 +1881,8 @@ public class ApiController {
                 "        \"11시 전에 남편이랑 ㄱㄱ!! \\n11시 전에는 식사를 할 수 있는 곳이 없었는데 \\n우리가 두리번거리니 식사 가... 더보기\"\n" +
                 "      ]\n" +
                 "    },";
-        String fullPrompt = str+"이 데이터에서"
-+                recommendForm.getWeather() + "에" + recommendForm.getBudget() + "의 예산으로+" +
-                recommendForm.getTime() + "시간대에"+ recommendForm.getPersonnel()+"명이서" + recommendForm.getFoodKategori() + "와 가은 종류의" +
-                " 음식을 json 형태로 4개 추천 해줘 json 값은 전부 내가 제공한 데이터로 해야해 마지막으로 추가적인 코멘트 없이 json만 출력해줘";
+        String fullPrompt = str + "이 데이터에서" +recommendForm.getBudget() + "의 예산으로+" + recommendForm.getFoodKategori() + "와 가은 종류의" +
+                " 음식을 json 형태로 10개 내외로 추천 해줘 json 값은 전부 내가 제공한 데이터로 해야해 마지막으로 추가적인 코멘트 없이 json만 출력해줘";
 
         GenerateContentResponse response =
                 client.models.generateContent(

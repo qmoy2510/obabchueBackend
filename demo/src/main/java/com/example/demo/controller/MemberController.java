@@ -24,7 +24,7 @@ public class MemberController {
         Member saved = memberRepository.save(m);
         return saved!=null?"저장 되었습니다!":"저장에 실패 했습니다.";
     }
-    @PostMapping("api/logIn")
+    @PostMapping("api/signIn")
     public String login(MemberDto member) {
         //1. DTO 를 엔티티로 변환
         Member m = member.toEntity();

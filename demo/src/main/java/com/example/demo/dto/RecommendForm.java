@@ -1,34 +1,17 @@
 package com.example.demo.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "음식점 추천 요청 폼")
 public class RecommendForm {
-    private String weather;
-    private String personnel;
-    private String time;
+    @Schema(description = "예산", example = "20000")
     private String budget;
+    @Schema(description = "음식 카테고리", example = "한식")
     private String foodKategori;
 
-    public RecommendForm(String foodKategori, String budget, String time, String weather, String personnel) {
+    public RecommendForm(String foodKategori, String budget) {
         this.foodKategori = foodKategori;
         this.budget = budget;
-        this.time = time;
-        this.weather = weather;
-        this.personnel = personnel;
-    }
-
-    public String getWeather() {
-        return weather;
-    }
-
-    public void setWeather(String weather) {
-        this.weather = weather;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getBudget() {
@@ -45,13 +28,5 @@ public class RecommendForm {
 
     public void setFoodKategori(String foodKategori) {
         this.foodKategori = foodKategori;
-    }
-
-    public String getPersonnel() {
-        return personnel;
-    }
-
-    public void setPersonnel(String personnel) {
-        this.personnel = personnel;
     }
 }

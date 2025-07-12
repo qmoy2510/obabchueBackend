@@ -12,7 +12,7 @@ public class Member {
     @Column
     private String name;
     @Column
-    private int age;
+    private int phone;
     @Column
     private int gender;
     @Column
@@ -25,11 +25,10 @@ public class Member {
         this.password = password;
     }
 
-    public Member(String userId, String name, int age, int gender, String password) {
-
+    public Member(String userId, String name, int phone, int gender, String password) {
         this.userId = userId;
         this.name = name;
-        this.age = age;
+        this.phone = phone;
         this.gender = gender;
         this.password = password;
     }
@@ -50,12 +49,12 @@ public class Member {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
     public int getGender() {

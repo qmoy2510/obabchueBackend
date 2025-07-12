@@ -27,6 +27,8 @@ dependencies {
 
 	implementation 'com.google.genai:google-genai:1.8.0' // 최신 버전을 확인하여 사용하세요
 
+	//스웨거
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 }
 
 tasks.named('test') {

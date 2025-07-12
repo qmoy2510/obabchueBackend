@@ -16,7 +16,7 @@ public class ApiController {
     @PostMapping("/api/recommend")
     public String recommend(RecommendForm recommendForm) {
         // The client gets the API key from the environment variable `GEMINI_API_KEY`.
-        Client client = Client.builder().apiKey("").build();
+        Client client = Client.builder().apiKey("AIzaSyBEGAPCPn3VrQAd8G4TTcg7LEVyGqQAO_M").build();
         String str =
                 "  {\n" +
                 "    \"place_id\": \"1842214188\",\n" +

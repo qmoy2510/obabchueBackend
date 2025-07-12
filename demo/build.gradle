@@ -24,6 +24,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation 'com.google.genai:google-genai:1.8.0' // 최신 버전을 확인하여 사용하세요
 }
 
 tasks.named('test') {

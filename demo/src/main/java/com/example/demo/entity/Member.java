@@ -20,6 +20,11 @@ public class Member {
 
     public Member() {}
 
+    public Member(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+
     public Member(String userId, String name, int age, int gender, String password) {
 
         this.userId = userId;

@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.dto.RecommendForm;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
@@ -19,11 +20,15 @@ public class ApiController {
         // The client gets the API key from the environment variable `GEMINI_API_KEY`.
         Client client = Client.builder().apiKey("").build();
 
+        String fullPrompt =
+                recommendForm.getWeather() + "에" + recommendForm.getBudget() + "의 옛나으로+" +
+                recommendForm.getTime() + "시간대에" + recommendForm.getFoodKategori() + "종류의" +
+                " 음식을 json 형태로 4개 추천 해줘 각 데이터 뭉치 하나당 메뉴, 음식, 주소가 각각 하나씩 나오게 작성해줘 json만 출력해줘 나오는 데이터는 전부 제공된 데이터에서 찾아야해";
+
         GenerateContentResponse response =
                 client.models.generateContent(
                         "gemini-2.5-flash",
-                        recommendForm.getWeather()+"에"+recommendForm.getBudget()+"의 옛나으로+" +
-                                recommendForm.getTime()+"시간대에"+recommendForm.getFoodKategori()+"종류의"+ " 음식을 json 형태로 4개 추천 해줘 각 데이터 뭉치 하나당 메뉴, 음식이 각각 하나씩 나오게 작성해줘 json만 출력해줘",
+                        fullPrompt, // 수정된 프롬프트 전달
                         null);
         return response.text();
     }

@@ -16,21 +16,27 @@ public class MemberController {
     private MemberRepository memberRepository;
 
     @PostMapping("api/signUp")
-    public String addMember(MemberDto member) {
+    public String signUp(MemberDto member) {
         //1. DTO 를 엔티티로 변환
         Member m = member.toEntity();
 
         //2. 레포지터리로 엔티티를 db에 저장
         Member saved = memberRepository.save(m);
-        return saved!=null?"저장 되었습니다!":"저장에 실패 했습니다.";
+        return saved!=null?"회원가입에 성공했습니다":"회원가입에 성공했습니다.";
     }
     @PostMapping("api/signIn")
-    public String login(MemberDto member) {
+    public String singIn(MemberDto member) {
         //1. DTO 를 엔티티로 변환
         Member m = member.toEntity();
+        Member readMember = memberRepository.findById(m.getUserId()).orElse(null);
+        if(readMember != null && readMember.getPassword() == m.getPassword()) {
+            return "로그인에 성고하셨습니다!";
+        }
+        else{
+            return "로그인에 실패하셨습니다";
+        }
 
         //2. 레포지터리로 엔티티를 db에 저장
-        Member saved = memberRepository.save(m);
-        return saved!=null?"저장 되었습니다!":"저장에 실패 했습니다.";
+
     }
 }
